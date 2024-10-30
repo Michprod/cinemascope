@@ -1,0 +1,81 @@
+/*!* Main.css *!*/
+/*.welcome-banner {*/
+/*    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),*/
+/*    url('https://via.placeholder.com/1920x600') center/cover;*/
+/*    padding: 100px 0;*/
+/*    margin-bottom: 2rem;*/
+/*}*/
+
+/*.section-title {*/
+/*    font-weight: 700;*/
+/*    color: #333;*/
+/*    border-left: 5px solid #ff4d4d;*/
+/*    padding-left: 15px;*/
+/*}*/
+
+/*.film-card {*/
+/*    transition: transform 0.3s ease, box-shadow 0.3s ease;*/
+/*    border: none;*/
+/*    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);*/
+/*}*/
+
+/*.film-card:hover {*/
+/*    transform: translateY(-5px);*/
+/*    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);*/
+/*}*/
+
+/*.film-card .card-img-top {*/
+/*    height: 400px;*/
+/*    object-fit: cover;*/
+/*}*/
+
+/*.film-card .card-body {*/
+/*    background-color: white;*/
+/*}*/
+
+/*.star-rating {*/
+/*    color: #ffc107;*/
+/*    font-weight: 600;*/
+/*}*/
+
+/*.card-title {*/
+/*    font-size: 1.1rem;*/
+/*    font-weight: 600;*/
+/*    margin-bottom: 0.5rem;*/
+/*}*/
+
+/*.badge {*/
+/*    font-weight: 500;*/
+/*    padding: 0.5em 0.8em;*/
+/*}*/
+
+/*.btn {*/
+/*    border-radius: 25px;*/
+/*    padding: 8px 16px;*/
+/*}*/
+
+/*.btn-primary {*/
+/*    background-color: #ff4d4d;*/
+/*    border-color: #ff4d4d;*/
+/*}*/
+
+/*.btn-primary:hover {*/
+/*    background-color: #ff3333;*/
+/*    border-color: #ff3333;*/
+/*}*/
+
+/*.btn-outline-secondary:hover {*/
+/*    background-color: #f8f9fa;*/
+/*    color: #ff4d4d;*/
+/*    border-color: #ff4d4d;*/
+/*}*/
+
+/*@media (max-width: 768px) {*/
+/*    .welcome-banner {*/
+/*        padding: 50px 0;*/
+/*    }*/
+
+/*    .film-card .card-img-top {*/
+/*        height: 300px;*/
+/*    }*/
+/*}*/

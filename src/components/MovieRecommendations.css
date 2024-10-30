@@ -1,0 +1,33 @@
+/* MovieRecommendations.css */
+.movie-card {
+    transition: transform 0.2s;
+    cursor: pointer;
+    background: #1a1a1a;
+    border: none;
+    border-radius: 8px;
+    overflow: hidden;
+    min-height: 350px; /* Hauteur minimale des cartes */
+}
+
+.movie-card:hover {
+    transform: scale(1.05);
+}
+
+.movie-info {
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.5) 100%);
+    opacity: 0.9;
+    transition: opacity 0.3s;
+}
+
+.movie-card:hover .movie-info {
+    opacity: 1;
+}
+
+.overflow-auto {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.overflow-auto::-webkit-scrollbar {
+    display: none;
+}
