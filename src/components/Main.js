@@ -2,9 +2,8 @@
 import React, { useState } from "react";
 import FilmGrid from "./FilmGrid";
 import AdvancedSearch from "./AdvancedSearch";
-import Preferences from "./Preferences";
-import VideoCategory from "./VideoCategory"; // Importer le nouveau composant
-import { videoCategories } from "./videoCategories"; // Importer les catégories
+import VideoCategory from "./VideoCategory";
+import { videoCategories } from "./videoCategories";
 import "./Main.css";
 import WelcomeBanner from "./WelcomeBanner";
 
@@ -12,51 +11,62 @@ const Main = () => {
   const [recommendations, setRecommendations] = useState([]);
   const [preferences, setPreferences] = useState([]);
 
-  // Fonction pour mettre à jour les recommandations
   const handleNewRecommendations = (newRecommendations) => {
     setRecommendations(newRecommendations);
   };
 
-  // Fonction pour gérer la sélection des vidéos
   const handleSelect = (video) => {
-    setPreferences((prev) => [...prev, video]);
+    if (preferences.includes(video)) {
+      setPreferences(preferences.filter((v) => v.id !== video.id));
+    } else {
+      setPreferences([...preferences, video]);
+    }
   };
+
+  const handleViewPreferences = () => {
+    setRecommendations(preferences);
+  };
+
+  const isusercontent = false;
 
   return (
     <main className="container-fluid p-0">
+      {isusercontent && (
+        <div className="container py-5">
+          <section className="recommendations mb-5">
+            <h2 className="section-title mb-4">Vos films recommandés</h2>
+            <FilmGrid recommendations={recommendations} />
+          </section>
+
+          <section className="advanced-search mb-5 bg-light p-4 rounded">
+            <h2 className="section-title mb-4">Filtres de recherche</h2>
+            <AdvancedSearch onRecommenderSubmit={handleNewRecommendations} />
+          </section>
+
+          <section className="preferences bg-light p-4 rounded">
+            <h2 className="section-title mb-4">
+              Parcourez les différents genres de films et sélectionnez ceux que
+              vous aimez pour que nous puissions vous faire des recommandations
+              personnalisées.
+            </h2>
+            {Object.entries(videoCategories).map(([category, videos]) => (
+              <VideoCategory
+                key={category}
+                category={category}
+                videos={videos}
+                onSelect={handleSelect}
+                selectedVideos={preferences}
+              />
+            ))}
+            <div className="d-flex justify-content-end mt-4">
+              <button variant="primary" onClick={handleViewPreferences}>
+                Voir mes films préférés
+              </button>
+            </div>
+          </section>
+        </div>
+      )}
       <WelcomeBanner />
-      <div className="container py-5">
-        {/*<section className="recommendations mb-5">*/}
-        {/*  <h2 className="section-title mb-4">Films Recommandés</h2>*/}
-        {/*  <FilmGrid recommendations={recommendations} />*/}
-        {/*</section>*/}
-
-        {/*<section className="advanced-search mb-5 bg-light p-4 rounded">*/}
-        {/*  <h2 className="section-title mb-4">Filtre de Recherche Avancé</h2>*/}
-        {/*  <AdvancedSearch onRecommenderSubmit={handleNewRecommendations} />*/}
-        {/*</section>*/}
-
-        <section className="preferences bg-light p-4 rounded">
-          <h2 className="section-title mb-4">Vos Préférences</h2>
-          {/* Affichage des catégories de vidéos */}
-          {Object.entries(videoCategories).map(([category, videos]) => (
-            <VideoCategory
-              key={category}
-              category={category}
-              videos={videos}
-              onSelect={handleSelect}
-            />
-          ))}
-          <div>
-            <h3>Préférences sélectionnées :</h3>
-            <ul>
-              {preferences.map((pref) => (
-                <li key={pref.id}>{pref.title}</li>
-              ))}
-            </ul>
-          </div>
-        </section>
-      </div>
     </main>
   );
 };

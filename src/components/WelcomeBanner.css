@@ -1,13 +1,14 @@
 /* WelcomeBanner.css */
 .welcome-banner {
-    height: 80vh;
+    height: 87vh;
     position: relative;
-    background-color: #ace6e6; /* ou #e5e5e5 */
+    background-color: #0a1929;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     margin-top: 60px;
+    overflow: hidden;
 }
 
 .banner-content {
@@ -19,51 +20,79 @@
 }
 
 .banner-content h1 {
-    font-size: 3.5rem;
-    margin-bottom: 1rem;
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
     background: linear-gradient(45deg, #ff4d4d, #ff8080);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: fadeInUp 0.8s ease;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .banner-content p {
-    font-size: 1.5rem;
-    margin-bottom: 2rem;
+    font-size: 1.2rem;
+    margin-bottom: 2.5rem;
     opacity: 0.9;
     animation: fadeInUp 0.8s ease 0.2s both;
+    line-height: 1.6;
+    color: #e0e0e0;
 }
 
 .banner-buttons {
     display: flex;
-    gap: 1rem;
+    gap: 1.2rem;
     justify-content: center;
     animation: fadeInUp 0.8s ease 0.4s both;
 }
 
-.btn-primary, .btn-secondary {
-    padding: 1rem 2rem;
+.btn-primary, .btn-secondary, .btn-join {
+    padding: 0.9rem 2.2rem;
     border: none;
-    border-radius: 25px;
-    font-size: 1.1rem;
+    border-radius: 8px;
+    font-size: 1rem;
     cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    letter-spacing: 0.2px;
 }
 
 .btn-primary {
     background: linear-gradient(45deg, #ff4d4d, #ff8080);
     color: white;
+    box-shadow: 0 4px 15px rgba(255, 77, 77, 0.3);
 }
 
 .btn-secondary {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.08);
     color: white;
     backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.btn-primary:hover, .btn-secondary:hover {
+.btn-join {
+    background: #2ecc71;
+    color: white;
+    box-shadow: 0 4px 15px rgba(46, 204, 113, 0.3);
+}
+
+.btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 6px 20px rgba(255, 77, 77, 0.4);
+    background: linear-gradient(45deg, #ff3333, #ff6666);
+}
+
+.btn-secondary:hover {
+    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.1);
+}
+
+.btn-join:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(46, 204, 113, 0.4);
+    background: #27ae60;
 }
 
 .banner-overlay {
@@ -74,8 +103,8 @@
     bottom: 0;
     background: linear-gradient(
             to bottom,
-            rgba(0, 0, 0, 0.7),
-            rgba(0, 0, 0, 0.3)
+            rgba(10, 25, 41, 0.95),
+            rgba(10, 25, 41, 0.7)
     );
     z-index: 1;
 }
@@ -93,14 +122,23 @@
 
 @media (max-width: 768px) {
     .banner-content h1 {
-        font-size: 2.5rem;
+        font-size: 2.8rem;
+        margin-bottom: 1.2rem;
     }
 
     .banner-content p {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+        padding: 0 1rem;
     }
 
     .banner-buttons {
         flex-direction: column;
+        padding: 0 2rem;
+    }
+
+    .btn-primary, .btn-secondary, .btn-join {
+        width: 100%;
+        padding: 1rem;
     }
 }

@@ -159,3 +159,34 @@
         font-size: 1.5rem;
     }
 }
+
+.join-button {
+    margin-left: 0.5rem;
+}
+
+.join-button .btn {
+    padding: 0.1rem 1.2rem;
+    border-radius: 5px;
+    font-weight: 400;
+    transition: all 0.3s ease;
+    background-color: #ff4d4d; /* Default background color */
+    color: #ffffff; /* Text color */
+    border: none; /* Remove border */
+}
+
+.join-button .btn:hover {
+    transform: translateY(-2px) scale(1.05); /* Scale effect on hover */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
+    background-color: #ff3333; /* Darker shade on hover */
+}
+
+@media (max-width: 768px) {
+    .join-button {
+        margin: 1rem 0 0 0;
+    }
+
+    .join-button .btn {
+        width: 100%;
+        text-align: center;
+    }
+}

@@ -49,10 +49,12 @@ const Header = () => {
               <Link to="/lists">Mes Listes</Link>
             </li>
             <li>
-              <Link to="/ratings">Évaluations</Link>
-            </li>
-            <li>
               <Link to="/about">À propos</Link>
+            </li>
+            <li className="join-button">
+              <button to="/signup" className="btn btn-primary">
+                <i className="bi-person-plus-fill"></i> Join
+              </button>
             </li>
           </ul>
         </nav>
