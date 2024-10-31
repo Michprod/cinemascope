@@ -26,7 +26,7 @@ const Main = () => {
     setRecommendations(preferences);
   };
 
-  const isusercontent = true;
+  const isusercontent = false;
 
   return (
     <main className="container-fluid p-0">
