@@ -10,7 +10,7 @@ const RegisterForm = () => {
     confirmPassword: "",
     username: "",
   });
-  const [errors, setErrors] = useState({});
+  const [errors] = useState({});
 
   const handleChange = (e) => {
     const { name, value } = e.target;
