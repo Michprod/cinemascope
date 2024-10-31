@@ -1,12 +1,14 @@
 // Header.js
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./header.css";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+
+  const navigate = useNavigate();
 
   return (
     <header className="site-header">
@@ -52,7 +54,12 @@ const Header = () => {
               <Link to="/about">À propos</Link>
             </li>
             <li className="join-button">
-              <button to="/signup" className="btn btn-primary">
+              <button
+                onClick={() => {
+                  navigate("/inscription");
+                }}
+                className="btn btn-primary"
+              >
                 <i className="bi-person-plus-fill"></i> Join
               </button>
             </li>

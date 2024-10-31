@@ -5,6 +5,7 @@ import Header from "./components/Header";
 
 import Footer from "./components/Footer";
 import { Main, Recommendations } from "./components";
+import RegisterForm from "./components/RegisterForm";
 
 const App = () => {
   return (
@@ -13,7 +14,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/recommandations" element={<Recommendations />} />
-        {/*<Route path="/inscription" element={<RegisterForm />} />*/}
+        <Route path="/inscription" element={<RegisterForm />} />
         {/*<Route path="/details/:id" element={<MovieDetails />} />cd */}
       </Routes>
       <Footer />
