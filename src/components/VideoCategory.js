@@ -1,52 +1,102 @@
-// VideoCategory.js
 import React, { useState } from "react";
-import { Row, Col, Card, Button } from "react-bootstrap";
+import "./VideoCategory.css";
 
 const VideoCategory = ({ category, videos, onSelect, selectedVideos }) => {
+  const [hoveredStars, setHoveredStars] = useState(0);
+  const [userRatings, setUserRatings] = useState({});
+
+  const handleStarHover = (rating) => {
+    setHoveredStars(rating);
+  };
+
+  const handleStarLeave = () => {
+    setHoveredStars(0);
+  };
+
+  const handleRate = (videoId, rating) => {
+    setUserRatings((prev) => ({
+      ...prev,
+      [videoId]: rating,
+    }));
+  };
+
+  const renderStars = (rating, isInteractive = false, videoId) => {
+    const stars = [];
+    const currentRating = hoveredStars || userRatings[videoId] || rating;
+
+    for (let i = 1; i <= 5; i++) {
+      stars.push(
+        <span
+          key={i}
+          className={`star ${i <= currentRating ? "filled" : "empty"} ${isInteractive ? "interactive" : ""}`}
+          onMouseEnter={isInteractive ? () => handleStarHover(i) : undefined}
+          onMouseLeave={isInteractive ? handleStarLeave : undefined}
+          onClick={isInteractive ? () => handleRate(videoId, i) : undefined}
+        >
+          ★
+        </span>,
+      );
+    }
+    return stars;
+  };
+
   return (
-    <div className="mb-5">
+    <div className="video-category mb-5">
       <h3 className="mb-4">{category}</h3>
-      <Row xs={1} sm={2} md={3} lg={4} className="g-4">
+      <div className="video-grid">
         {videos.map((video) => (
-          <Col key={video.id}>
-            <Card
-              className={`h-100 shadow-sm ${selectedVideos.includes(video) ? "selected" : ""}`}
-            >
-              <Card.Img
-                variant="top"
+          <div
+            className={`video-card ${selectedVideos.includes(video) ? "selected" : ""}`}
+            key={video.id}
+          >
+            <div className="poster-container">
+              <img
                 src={video.poster}
                 alt={video.title}
-                style={{ height: "200px", objectFit: "cover" }}
+                className="film-poster"
               />
-              <Card.Body className="d-flex flex-column">
-                <Card.Title className="h6">{video.title}</Card.Title>
-                <div className="mt-2 d-flex justify-content-between align-items-center">
-                  {video.year && (
-                    <small className="text-muted">{video.year}</small>
-                  )}
+              <div className="video-card-content">
+                <h4 className="video-title">{video.title}</h4>
+                <div className="video-info">
+                  {video.year && <div className="video-year">{video.year}</div>}
                   {video.rating && (
-                    <small className="text-warning">
-                      <i className="bi bi-star-fill me-1"></i>
-                      {video.rating}
-                    </small>
+                    <div className="video-rating">
+                      <div className="stars">{renderStars(video.rating)}</div>
+                      <span className="rating-value">{video.rating}/5</span>
+                    </div>
                   )}
                 </div>
-                <Button
-                  variant={
+                <button
+                  className={`select-btn ${
                     selectedVideos.includes(video)
-                      ? "primary"
-                      : "outline-primary"
-                  }
-                  className="mt-auto"
+                      ? "btn-primary"
+                      : "btn-outline-primary"
+                  }`}
                   onClick={() => onSelect(video)}
                 >
                   {selectedVideos.includes(video) ? "Déjà choisi" : "Choisir"}
-                </Button>
-              </Card.Body>
-            </Card>
-          </Col>
+                </button>
+              </div>
+              <div className="overlay">
+                <div className="overlay-content">
+                  <p className="video-description">{video.description}</p>
+                  <div className="user-rating">
+                    <span className="rating-label">Votre note :</span>
+                    <div className="stars interactive">
+                      {renderStars(userRatings[video.id] || 0, true, video.id)}
+                    </div>
+                    <span className="rating-value">
+                      {userRatings[video.id]
+                        ? `${userRatings[video.id]}/5`
+                        : "-"}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         ))}
-      </Row>
+      </div>
     </div>
   );
 };

@@ -31,7 +31,7 @@ const Main = () => {
 
   return (
     <main className="container-fluid p-0">
-      {isusercontent && (
+      {isusercontent ? (
         <div className="container py-5">
           <section className="recommendations mb-5">
             <h2 className="section-title mb-4">Vos films recommandés</h2>
@@ -65,8 +65,9 @@ const Main = () => {
             </div>
           </section>
         </div>
+      ) : (
+        <WelcomeBanner />
       )}
-      <WelcomeBanner />
     </main>
   );
 };

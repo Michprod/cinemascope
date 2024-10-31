@@ -19,16 +19,32 @@ const Footer = () => {
                   discuter des meilleurs films.
                 </p>
                 <div className="social-links">
-                  <a href="#" className="social-link" aria-label="Facebook">
+                  <a
+                    href="https://facebook.com"
+                    className="social-link"
+                    aria-label="Facebook"
+                  >
                     <i className="bi bi-facebook"></i>
                   </a>
-                  <a href="#" className="social-link" aria-label="Twitter">
+                  <a
+                    href="https://twitter.com"
+                    className="social-link"
+                    aria-label="Twitter"
+                  >
                     <i className="bi bi-twitter-x"></i>
                   </a>
-                  <a href="#" className="social-link" aria-label="Instagram">
+                  <a
+                    href="https://instagram.com"
+                    className="social-link"
+                    aria-label="Instagram"
+                  >
                     <i className="bi bi-instagram"></i>
                   </a>
-                  <a href="#" className="social-link" aria-label="YouTube">
+                  <a
+                    href="https://youtube.com"
+                    className="social-link"
+                    aria-label="YouTube"
+                  >
                     <i className="bi bi-youtube"></i>
                   </a>
                 </div>
@@ -39,7 +55,7 @@ const Footer = () => {
               <h4>Navigation</h4>
               <ul className="footer-links">
                 <li>
-                  <a href="/">Accueil</a>
+                  <a href="/client/public">Accueil</a>
                 </li>
                 <li>
                   <a href="/films">Films</a>
