@@ -1,4 +1,3 @@
-// Main.js
 import React, { useState } from "react";
 import FilmGrid from "./FilmGrid";
 import AdvancedSearch from "./AdvancedSearch";
@@ -27,7 +26,7 @@ const Main = () => {
     setRecommendations(preferences);
   };
 
-  const isusercontent = false;
+  const isusercontent = true;
 
   return (
     <main className="container-fluid p-0">
@@ -36,11 +35,6 @@ const Main = () => {
           <section className="recommendations mb-5">
             <h2 className="section-title mb-4">Vos films recommandés</h2>
             <FilmGrid recommendations={recommendations} />
-          </section>
-
-          <section className="advanced-search mb-5 bg-light p-4 rounded">
-            <h2 className="section-title mb-4">Filtres de recherche</h2>
-            <AdvancedSearch onRecommenderSubmit={handleNewRecommendations} />
           </section>
 
           <section className="preferences bg-light p-4 rounded">
